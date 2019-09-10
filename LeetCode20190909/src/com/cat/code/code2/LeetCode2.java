@@ -57,11 +57,15 @@ public class LeetCode2 {
     }
 
     public ListNode getListNodeFromString(String str){
-        ListNode listNode =null;
-        int index =0;
+        ListNode listNode =new ListNode(Integer.valueOf(str.substring(0,1)));
+        int index =1;
         while (index<str.length()){
-            listNode.val=Integer.valueOf(str.substring(index,index+1));
-            listNode.next = listNode;
+            ListNode temp = listNode;
+            while (temp.next != null) {
+                temp = temp.next;
+            }
+            ListNode node = new ListNode( Integer.valueOf(str.substring(index,index+1)));
+            temp.next=node;
             index++;
         }
         return listNode;
