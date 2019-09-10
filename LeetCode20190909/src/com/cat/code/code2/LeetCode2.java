@@ -74,6 +74,8 @@ public class LeetCode2 {
         l1.next=new ListNode(4);
         l1.next.next = new ListNode(3);
         l1.next.next.next = new ListNode(5);
+        System.out.println(leetCode.getStringFromListNode(l1));
+        System.out.println(leetCode.getListNodeFromString("2345"));
 
         ListNode l2 = new ListNode(5);
         l2.next=new ListNode(6);
