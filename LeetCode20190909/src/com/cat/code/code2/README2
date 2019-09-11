@@ -16,4 +16,8 @@
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 
 解决思路：
-第一个","之前的数字即为匹配数字
+节点处理对我来说很麻烦，先将链表转化为子字符串，用字符串相加，然后将字符串转为链表
+
+链表转字符串==》   public String getStringFromListNode(ListNode listNode)
+字符串相加求和==》  public String getSumByString(String str1,String str2)
+字符串转链表==》   public ListNode getListNodeFromString(String str)
