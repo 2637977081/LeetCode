@@ -1,0 +1,51 @@
+问题描述：
+将一个给定字符串根据给定的行数，以从上往下、从左到右进行 Z 字形排列。
+
+比如输入字符串为 "LEETCODEISHIRING" 行数为 3 时，排列如下：
+
+L   C   I   R
+E T O E S I I G
+E   D   H   N
+之后，你的输出需要从左往右逐行读取，产生出一个新的字符串，比如："LCIRETOESIIGEDHN"。
+
+请你实现这个将字符串进行指定行数变换的函数：
+
+string convert(string s, int numRows);
+示例 1:
+
+输入: s = "LEETCODEISHIRING", numRows = 3
+输出: "LCIRETOESIIGEDHN"
+示例 2:
+
+输入: s = "LEETCODEISHIRING", numRows = 4
+输出: "LDREOEIIECIHNTSG"
+解释:
+
+L     D     R
+E   O E   I I
+E C   I H   N
+T     S     G
+
+来源：力扣（LeetCode）
+链接：https://leetcode-cn.com/problems/zigzag-conversion
+著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+
+
+解决思路：
+
+简单规律题
+
+0                       2*(rowNum-1)
+1       2(rowNum-1)-1   2*(rowNum-1)+1
+2   2(rowNum-1)-2       2*(rowNum-1)+2
+
+rowNum-1                3*(rowNum-1)
+
+
+字符索引位置确认：我们通过索引的规律改变，定位所有字符索引位置
+    我们可以发现规则两列中间索引差值maxAdd=2*(rowNum-1)，
+    ==>列坐标变化nowIndex=col*maxAdd+row
+    ==>而两列中间的坐标为nextIndex = (col+1)*maxAdd-row
+    【注意】我们需要中间坐标不会和规则列重合，否则会多添加字符，根据图型我们知道只有row=0或row=rowNum-1的时候重合
+矩阵扫描：从左到右，从上到下，满足要求就行
+    我们可知矩阵最大行数就是rowNum，那么最大列数则为maxCol = s.length()/maxAdd+1
