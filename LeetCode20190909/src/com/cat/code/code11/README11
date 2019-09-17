@@ -17,5 +17,15 @@
 来源：力扣（LeetCode）
 链接：https://leetcode-cn.com/problems/container-with-most-water
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+
 解决思路：
+矩形面积=高度*宽度
+容器最大高度由最小的一处保证 高度=min(height[left],height[right])
+而宽度=right-left
+当前最大面积
+    int nowArea = Math.min(height[left],height[right])*(right-left);
+    maxArea=Math.max(maxArea,nowArea);
+随着left++和right--，我们可知宽度是一定会缩小的，所以我们必须要保证最小的高度是上升的，这样情况下的面积才有可能大于maxArea
+所以我们缩进高度小的一边，才能使得最小高度可以上升
+
 
