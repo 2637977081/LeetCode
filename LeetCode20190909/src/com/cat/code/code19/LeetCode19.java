@@ -3,7 +3,7 @@ package com.cat.code.code19;
 public class LeetCode19 {
     public ListNode removeNthFromEnd(ListNode head, int n) {
         //头部加一个哑结点，避免处理为空
-        ListNode res = new ListNode(0);
+        ListNode res = new ListNode(-1);
         res.next = head;
         ListNode p=res;
         ListNode q = res;
